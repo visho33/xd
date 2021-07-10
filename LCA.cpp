@@ -7,7 +7,7 @@ int N, M, K;
 
 int raise(int u, int n) {
 
-	for(int k = 0; (1<<k) <= n; ++k) {
+	for(int k = 0; (1<<k) <= n; k++) {
 		if(((1<<k)&n) != 0) {
 			u = P[k][u];
 		}
@@ -20,7 +20,7 @@ int lca(int u, int v) {
 
 	if(L[u] < L[v]) swap(u, v);
 
-	int delta = L[v] - L[u];
+	int delta = L[u] - L[v];
 	if(delta != 0) u = raise(u, delta);
 
 	// Despues de eso, estan en el mismo nivel
